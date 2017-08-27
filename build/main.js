@@ -27,7 +27,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
   $routeProvider.otherwise({
     templateUrl: "views/home.html",
-    controller: "homeCtrl"
+    controller: "mainCtrl"
   });
 });
 
@@ -122,11 +122,34 @@ app.factory("dataService", function () {
 // end of all
 "use strict";
 
+// homeCtrl controller
+app.controller("mainCtrl", function ($scope, $location, dataService) {});
+"use strict";
+
 // это должен быть как бы переход по ссылке на руотинге. подставлять id для ссылки вида product/id33/
 // представим, что в ... короче, по ссылке нужно парсить првильно данные и выводить их ровно.
 // get data и кинуть айдишник в сервис дата аргумент.
 
-app.controller('mainCtrl', function ($scope, $location, dataService) {
+app.controller('homeCtrl', function ($scope, $location, dataService) {
+
+  //////////
+  // routing
+  //////
+
+  $scope.goToEdit = function () {
+    $location.path("/edit");
+  };
+
+  $scope.goToProduct = function () {
+    $location.path("/product");
+  };
+
+  $scope.goToTable = function () {
+    $location.path("/");
+  };
+
+  // EOF routing
+
 
   // permanent data-clone:
   $scope.items = dataService.data;
@@ -159,30 +182,6 @@ app.controller('mainCtrl', function ($scope, $location, dataService) {
   };
 
   $scope.push = function () {};
-});
-"use strict";
-
-// homeCtrl controller
-app.controller("homeCtrl", function ($scope, $location, dataService) {
-
-  //////////
-  // routing
-  //////
-
-  $scope.goToEdit = function () {
-    $location.path("/edit");
-  };
-
-  $scope.goToProduct = function () {
-    $location.path("/product");
-  };
-
-  $scope.goToTable = function () {
-    $location.path("/");
-  };
-
-  // EOF routing
-
 });
 "use strict";
 
