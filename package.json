@@ -20,9 +20,7 @@
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
-    "node-sass": "^4.5.3"
-  },
-  "dependencies": {
+    "node-sass": "^4.5.3",
     "gulp-livereload": "^3.8.1"
   }
 }
