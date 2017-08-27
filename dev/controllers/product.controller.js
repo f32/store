@@ -12,6 +12,6 @@ app.controller("productCtrl", function($scope, $location, dataService, $route){
   $scope.currentItem = dataService.getProduct($route.current.params.id);
 
   // console.log($routecurrent);
-  debugger
+  // debugger
 
 });

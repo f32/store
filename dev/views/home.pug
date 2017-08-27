@@ -7,7 +7,7 @@ table.table.table-striped.table-hover
       th.text-right Price
       th
   tbody
-    tr.item(ng-repeat='item in items track by item.id', ng-click='showProduct(item)')
+    tr.item(ng-repeat='item in items', ng-click='showProduct(item)')
       // ng-click="showProduct(item, $index)"
       td
         img(ng-src="{{item.image}}", width='70', height='70', alt='')
