@@ -39,7 +39,7 @@ form.panel-body.form-horizontal(ng-controller='editCtrl', name='editForm', noval
         accept='image/png,image/jpeg')
 
     //- .avatar-preview(ng-if="currentItem.image" style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});")
-    .avatar-preview(ng-if="currentItem.image" style="background-image: url({{currentItem.image}});")
+    .avatar-preview.col-sm-12(ng-if="currentItem.image" style="background-image: url({{currentItem.image}});")
       // ------------ ^^^^^^ показать картинку,если она есть. // покрыт случай create (когда никакие файлы еще не добавлялись.)
 
 

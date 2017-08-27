@@ -39,3 +39,10 @@ form .ng-invalid.ng-dirty {
 form .ng-valid.ng-dirty {
   background-color: lightgreen;
 }
+
+.avatar-preview {
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+}
