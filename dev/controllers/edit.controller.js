@@ -30,13 +30,18 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
 
 
     $scope.create = function(item){
-      let newId = 0;
-      dataService.data.forEach(function(elem, index){
-        if (newId < elem.id) {
-          newId = elem.id;
-        }
-      });
-      item.id = ++newId;
+      $scope.currentItem = {};
+      if ($route.current.params.id) {
+        $scope.currentItem = getProduct[$route.current.params.id];
+      }
+
+      // let newId = 0;
+      // dataService.data.forEach(function(elem, index){
+      //   if (newId < elem.id) {
+      //     newId = elem.id;
+      //   }
+      // });
+      // item.id = ++newId;
 
       dataService.data.push(item);
       dataService.updateStorage(dataService.data);
