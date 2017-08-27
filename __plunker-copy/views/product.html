@@ -1,0 +1,17 @@
+<!-- Представление для редактирования -->
+<div ng-controller="editCtrl" class="panel-body">
+
+    <div class="jumbotron">
+      <div class="row">
+        <div class="text-left lead col-lg-8 col-md-8 col-xs-8">{{currentItem.name}}</div>
+        <div class="text-right lead col-lg-4 col-md-4 col-xs-4">{{currentItem.price | currency}}</div>
+      </div>
+      <img src="{{currentItem.image}}">
+      <div>
+        <h4 class="text-left">Description:</h4>
+        <p class="text-left">{{currentItem.description}}</p>
+      </div>
+    </div>
+
+    <button class="btn btn-success" ng-click="cancelEdit()">Back</button> <!--Отмена правок-->
+</div>

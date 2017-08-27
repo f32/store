@@ -1,0 +1,73 @@
+<!-- Представление для редактирования -->
+<form ng-controller="editCtrl" name="editForm" novalidate ng-submit="saveEdit(currentItem)" class="panel-body form-horizontal">
+
+
+    <!-- TITLE/NAME -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Title:</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="prodTitle" ng-model="currentItem.name" required>
+        </div>
+
+        <!-- error msg ahead -->
+        <div class="error col-sm-10 col-sm-offset-2 text-left text-danger" ng-show="editForm.prodTitle.$invalid && editForm.prodTitle.$dirty">
+          <span ng-show="editForm.prodTitle.$error.required">Поле не должно быть пустым</span>
+        </div>
+        <!-- EOF error msg ahead -->
+    </div>
+
+
+
+    <!-- PRICE -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Price:</label>
+        <div class="col-sm-10">
+         <input class="form-control" name="prodPrice" ng-model="currentItem.price" required>
+        </div>
+        <!-- error msg ahead -->
+        <div class="error col-sm-10 col-sm-offset-2 text-left text-danger" ng-show="editForm.prodPrice.$invalid && editForm.prodPrice.$dirty">
+          <span ng-show="editForm.prodPrice.$error.required">Поле не должно быть пустым</span>
+        </div>
+        <!-- EOF error msg ahead -->
+    </div>
+
+
+
+    <!-- DESC -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Description:</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="prodDesc" ng-model="currentItem.description" required>
+        </div>
+
+        <!-- error msg ahead -->
+        <div class="error col-sm-10 col-sm-offset-2 text-left text-danger" ng-show="editForm.prodDesc.$invalid && editForm.prodDesc.$dirty">
+          <span ng-show="editForm.prodDesc.$error.required">Поле не должно быть пустым</span>
+        </div>
+        <!-- EOF error msg ahead -->
+    </div>
+
+
+
+    <!-- IMAGE -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Image:</label>
+        <div class="col-sm-10">
+          <!--<input class="form-control" name="prodThumbnail" ng-model="currentItem.image" required>  -->
+          <input class="edit-input edit-input-file" type="file" id="edit_avatar" onchange="angular.element(this).$scope().getImage(this, angular.element(this).$scope().imageIsLoaded)" accept="image/png,image/jpeg">
+        </div>
+        <div class="avatar-preview" style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});"></div>
+        <!-- error msg ahead -->
+        <div class="error col-sm-10 col-sm-offset-2 text-left text-danger" ng-show="editForm.userThumbnail.$invalid && editForm.userThumbnail.$dirty">
+          <!--<span ng-show="editForm.userThumbnail.$error">Выберите правильную картинку</span>-->
+          <span ng-show="editForm.userThumbnail.$error.required">Поле не должно быть пустым</span>
+        </div>
+        <!-- EOF error msg ahead -->
+    </div>
+
+
+
+    <button class="btn btn-primary" type="submit" ng-disabled="editForm.$invalid">Save</button> <!--Сохранение изменений-->
+    <button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button> <!--Отмена правок-->
+
+</form>

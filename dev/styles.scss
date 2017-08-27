@@ -1,0 +1,41 @@
+/* Put your css in here */
+
+
+/*
+ * Base structure
+ */
+
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+body {
+  text-align: center;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+}
+
+.item:hover {
+  cursor: pointer;
+}
+.button-container {
+  position: relative;
+  z-index: 10;
+}
+
+/*
+ * EOF  Base structure
+ */
+
+form .ng-pristine {
+  border: 1px dotted gray;
+}
+
+form .ng-invalid.ng-dirty {
+  background-color: lightpink;
+}
+
+form .ng-valid.ng-dirty {
+  background-color: lightgreen;
+}

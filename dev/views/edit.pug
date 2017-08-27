@@ -1,0 +1,45 @@
+// Представление для редактирования
+form.panel-body.form-horizontal(ng-controller='editCtrl', name='editForm', novalidate='', ng-submit='saveEdit(currentItem)')
+  // TITLE/NAME
+  .form-group
+    label.col-sm-2.control-label Title:
+    .col-sm-10
+      input.form-control(name='prodTitle', ng-model='currentItem.name', required='')
+    // error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodTitle.$invalid && editForm.prodTitle.$dirty')
+      span(ng-show='editForm.prodTitle.$error.required') Поле не должно быть пустым
+    // EOF error msg ahead
+  // PRICE
+  .form-group
+    label.col-sm-2.control-label Price:
+    .col-sm-10
+      input.form-control(name='prodPrice', ng-model='currentItem.price', required='')
+    // error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodPrice.$invalid && editForm.prodPrice.$dirty')
+      span(ng-show='editForm.prodPrice.$error.required') Поле не должно быть пустым
+    // EOF error msg ahead
+  // DESC
+  .form-group
+    label.col-sm-2.control-label Description:
+    .col-sm-10
+      input.form-control(name='prodDesc', ng-model='currentItem.description', required='')
+    // error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodDesc.$invalid && editForm.prodDesc.$dirty')
+      span(ng-show='editForm.prodDesc.$error.required') Поле не должно быть пустым
+    // EOF error msg ahead
+  // IMAGE
+  .form-group
+    label.col-sm-2.control-label Image:
+    .col-sm-10
+      // <input class="form-control" name="prodThumbnail" ng-model="currentItem.image" required>
+      input#edit_avatar.edit-input.edit-input-file(type='file', onchange='angular.element(this).$scope().getImage(this, angular.element(this).$scope().imageIsLoaded)', accept='image/png,image/jpeg')
+    .avatar-preview(style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});")
+    // error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.userThumbnail.$invalid && editForm.userThumbnail.$dirty')
+      // <span ng-show="editForm.userThumbnail.$error">Выберите правильную картинку</span>
+      span(ng-show='editForm.userThumbnail.$error.required') Поле не должно быть пустым
+    // EOF error msg ahead
+  button.btn.btn-primary(type='submit', ng-disabled='editForm.$invalid') Save
+  // Сохранение изменений
+  button.btn.btn-primary(ng-click='cancelEdit()') Cancel
+  // Отмена правок
