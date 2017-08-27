@@ -20,7 +20,8 @@ app.controller('homeCtrl', function($scope, $location, dataService){
 
     $scope.showProduct = (item) => {
       // $scope.currentItem = item ? angular.copy(item) : {};
-      $location.path("/product");
+
+      $location.path(`/product/${item.id}`);
     };
 
 

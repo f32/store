@@ -21,7 +21,7 @@ app.config(function ($routeProvider, $locationProvider) {
     controller: "editCtrl"
   });
 
-  $routeProvider.when("/product", {
+  $routeProvider.when("/product/:id", {
     templateUrl: "views/product.html",
     controller: "productCtrl"
   });

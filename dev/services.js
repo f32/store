@@ -69,9 +69,15 @@ app.factory("dataService", function(){
     },
 
     // getting data from LocalStorage:
-    getData (){
+    getData (){ //
       return JSON.parse(localStorage.getItem('products'))
-    }
+    },
+
+    // getProduct(id){
+
+      // console.log(id);
+      // debugger;
+    // }
   };
 
 
@@ -86,7 +92,3 @@ app.factory("dataService", function(){
 
 
   // end of all
-
-
-
-  

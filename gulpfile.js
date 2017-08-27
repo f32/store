@@ -37,6 +37,7 @@ gulp.task('js', function() {
       'dev/services.js', // e.g. /path/to/mymodule/mymodule.js',
       'dev/controllers/main.controller.js', // e.g. /path/to/mymodule/mymodule.js',
       'dev/controllers/home.controller.js', // e.g. /path/to/mymodule/mymodule.js',
+      'dev/controllers/product.controller.js', // e.g. /path/to/mymodule/mymodule.js',
       'dev/controllers/edit.controller.js' // e.g. /path/to/mymodule/mymodule/*.js'
       // 'src/js/services.js', // e.g. /path/to/mymodule/mymodule.js',
       // 'src/js/controllers/main.controller.js', // e.g. /path/to/mymodule/mymodule.js',

@@ -2,7 +2,7 @@
 app.controller("editCtrl", function($scope, $location, dataService){
 
 
-    $scope.cancelEdit = () => $location.path("/");
+    
 
     $scope.saveEdit = function(item){
       if (angular.isDefined(item.id)){
