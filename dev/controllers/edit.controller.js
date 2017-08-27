@@ -3,12 +3,14 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
 
 
     $scope.cancelEdit = () => $location.path("/");
-
+              // когда проверка routecurrent params...
     if ($route.current.params.id) {
       $scope.currentItem = dataService.getProduct($route.current.params.id);
     } else {
       $scope.currentItem = "";
     }
+
+
 
 
     $scope.saveEdit = function(item){
@@ -71,7 +73,7 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
     // что вызывается на change для input-a. доставет из инпута.
     $scope.getImage = function (elem, callback) {
         var reader = new FileReader();
-        if( scope.fileIsImage(elem.files[0].type) ){
+        if( $scope.fileIsImage(elem.files[0].type) ){
             reader.onload = callback;
             reader.readAsDataURL(elem.files[0]); // только здесь запустится ридер файла.
         }
@@ -91,8 +93,8 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
     // это callback на файл ридере. коллбек вызывается, когда ридер переварит весь файл.
       // просто передаем результат
     $scope.imageIsLoaded = function (e) {
-        scope.$apply(function () {
-            scope.infoBlocks.basic.data.image = e.target.result;
+        $scope.$apply(function () {
+            $scope.currentItem.image = e.target.result;
         });
         angular.element(document.querySelector('#edit_avatar')).val(null);
     };

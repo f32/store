@@ -31,15 +31,24 @@ form.panel-body.form-horizontal(ng-controller='editCtrl', name='editForm', noval
   .form-group
     label.col-sm-2.control-label Image:
     .col-sm-10
-      // <input class="form-control" name="prodThumbnail" ng-model="currentItem.image" required>
-      input#edit_avatar.edit-input.edit-input-file(type='file', onchange='angular.element(this).$scope().getImage(this, angular.element(this).$scope().imageIsLoaded)', accept='image/png,image/jpeg')
-    .avatar-preview(style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});")
-    // error msg ahead
+      //- <input class="form-control" name="prodThumbnail" ng-model="currentItem.image" required>
+
+      input#edit_avatar.edit-input.edit-input-file(
+        type='file',
+        onchange='angular.element(this).$scope().getImage(this, angular.element(this).$scope().imageIsLoaded)',
+        accept='image/png,image/jpeg')
+
+    //- .avatar-preview(ng-if="currentItem.image" style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});")
+    .avatar-preview(ng-if="currentItem.image" style="background-image: url({{currentItem.image}});")
+      // ------------ ^^^^^^ показать картинку,если она есть. // покрыт случай create (когда никакие файлы еще не добавлялись.)
+
+
+    //- error msg ahead
     .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.userThumbnail.$invalid && editForm.userThumbnail.$dirty')
-      // <span ng-show="editForm.userThumbnail.$error">Выберите правильную картинку</span>
+      //- <span ng-show="editForm.userThumbnail.$error">Выберите правильную картинку</span>
       span(ng-show='editForm.userThumbnail.$error.required') Поле не должно быть пустым
-    // EOF error msg ahead
+    //- EOF error msg ahead
   button.btn.btn-primary(type='submit', ng-disabled='editForm.$invalid') Save
-  // Сохранение изменений
+  //- Сохранение изменений
   button.btn.btn-primary(ng-click='cancelEdit()') Cancel
-  // Отмена правок
+  //- Отмена правок
