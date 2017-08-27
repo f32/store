@@ -4,7 +4,12 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
 
     $scope.cancelEdit = () => $location.path("/");
 
-    $scope.currentItem = dataService.getProduct($route.current.params.id);
+    if ($route.current.params.id) {
+      $scope.currentItem = dataService.getProduct($route.current.params.id);
+    } else {
+      $scope.currentItem = "";
+    }
+
 
     $scope.saveEdit = function(item){
       if (angular.isDefined(item.id)){
@@ -30,10 +35,13 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
 
 
     $scope.create = function(item){
-      $scope.currentItem = {};
-      if ($route.current.params.id) {
-        $scope.currentItem = getProduct[$route.current.params.id];
-      }
+      $scope.currentItem.id = new Date().getTime().toString();
+
+
+
+      // if ($route.current.params.id) {
+      //   $scope.currentItem = getProduct[$route.current.params.id];
+      // }
 
       // let newId = 0;
       // dataService.data.forEach(function(elem, index){
@@ -43,8 +51,16 @@ app.controller("editCtrl", function($scope, $location, dataService, $route){
       // });
       // item.id = ++newId;
 
-      dataService.data.push(item);
-      dataService.updateStorage(dataService.data);
+      // просто создаем id перед отправкой для товара нового.
+
+
+      // пишем метод в сервисе для добавления продукта в localstorage и в базу-клон.
+      // он работает с моделью сам, в контроллере мы это не делаем.
+
+
+      // !! переписать эти методы в сервисе. Сервис работает с моделью.
+      dataService.data.push(item); // переписать эти.
+      dataService.updateStorage(dataService.data); // методы на другие.
       $location.path("/");
     }
 
