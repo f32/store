@@ -16,7 +16,12 @@ app.config(function ($routeProvider, $locationProvider) {
     controller: "homeCtrl"
   });
 
-  $routeProvider.when("/edit", {
+  $routeProvider.when("/edit/:id", {
+    templateUrl: "views/edit.html",
+    controller: "editCtrl"
+  });
+
+  $routeProvider.when("/create", {
     templateUrl: "views/edit.html",
     controller: "editCtrl"
   });

@@ -37,8 +37,13 @@ app.controller('homeCtrl', function($scope, $location, dataService){
 
 
     $scope.edit = (item) => {
-      $scope.currentItem = item ? angular.copy(item) : {};
-      $location.path("/edit");
+      // $scope.currentItem = item ? angular.copy(item) : {};
+      $location.path(`/edit/${item.id}`);
+    };
+    // if route.current.params - exists - достаем из ls, иначе - дефолт значения.
+
+    $scope.create = (item) => {
+      $location.path('/create');
     };
 
     $scope.push = () => {

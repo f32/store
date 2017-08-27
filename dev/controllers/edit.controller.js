@@ -1,8 +1,10 @@
 // editCtrl controller
-app.controller("editCtrl", function($scope, $location, dataService){
+app.controller("editCtrl", function($scope, $location, dataService, $route){
 
 
     $scope.cancelEdit = () => $location.path("/");
+
+    $scope.currentItem = dataService.getProduct($route.current.params.id);
 
     $scope.saveEdit = function(item){
       if (angular.isDefined(item.id)){
