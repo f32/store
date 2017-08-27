@@ -1,7 +1,7 @@
 var gulp         = require('gulp'),
     babel        = require("gulp-babel"),
     pug          = require('gulp-pug'),
-    browserify   = require('gulp-browserify'),
+    // browserify   = require('gulp-browserify'),
     livereload   = require('gulp-livereload'), // added 2016-07-11
     sourcemaps   = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -52,7 +52,7 @@ gulp.task('js', function() {
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))      // install jshint-stylish dependency
         // .pipe(jshint.reporter('fail'))
-        .pipe(browserify({ debug: env === 'development' })) // we pass the entry point on to the browserify plug. //2// include the source maps only if we're i a dev environment
+        // .pipe(browserify({ debug: env === 'development' })) // we pass the entry point on to the browserify plug. //2// include the source maps only if we're i a dev environment
         .pipe(gulpif(env === 'production', uglify())) // if our environment is production, only then uglify it
         // debug: true --- this way browserify include sourcemaps with the compiled js
         // now we just have to specify an output folder
