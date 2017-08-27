@@ -23,7 +23,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
   $routeProvider.when("/product", {
     templateUrl: "views/product.html",
-    controller: "homeCtrl"
+    controller: "productCtrl"
   });
 
   $routeProvider.otherwise({

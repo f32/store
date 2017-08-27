@@ -18,7 +18,7 @@ app.controller('homeCtrl', function($scope, $location, dataService){
         $location.path("/product");
       }
 
-      $scope.goToTable = function(){
+      $scope.goToHome = function(){
         $location.path("/");
       }
 

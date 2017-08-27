@@ -22,7 +22,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
   $routeProvider.when("/product", {
     templateUrl: "views/product.html",
-    controller: "homeCtrl"
+    controller: "productCtrl"
   });
 
   $routeProvider.otherwise({
@@ -122,7 +122,7 @@ app.factory("dataService", function () {
 // end of all
 "use strict";
 
-// homeCtrl controller
+// mainCtrl controller
 app.controller("mainCtrl", function ($scope, $location, dataService) {});
 "use strict";
 
@@ -144,7 +144,7 @@ app.controller('homeCtrl', function ($scope, $location, dataService) {
     $location.path("/product");
   };
 
-  $scope.goToTable = function () {
+  $scope.goToHome = function () {
     $location.path("/");
   };
 
