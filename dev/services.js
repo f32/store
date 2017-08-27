@@ -73,11 +73,18 @@ app.factory("dataService", function(){
       return JSON.parse(localStorage.getItem('products'))
     },
 
-    // getProduct(id){
+    getProduct(id){
+      let product;
+      dataBase.forEach(function(elem, index){
+        if (elem.id === id) {
+          product = database[index]; // or database[index]
+        }
+      })
 
-      // console.log(id);
-      // debugger;
-    // }
+      debugger
+      return product;
+        // доставл из LS, продукты. вернул объект с этим id.
+    }
   };
 
 

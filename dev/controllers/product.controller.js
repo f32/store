@@ -9,9 +9,9 @@ app.controller("productCtrl", function($scope, $location, dataService, $route){
   // по id получаем данные этого продукта.
   // $scope.item = dataService.data[indexOf(document.location.href)];
 
-  // dataService.getProduct($route.params);
+  $scope.currentItem = dataService.getProduct($route.current.params.id);
 
-  console.log($route);
+  // console.log($routecurrent);
   debugger
 
 });
