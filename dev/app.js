@@ -28,7 +28,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
   $routeProvider.otherwise({
     templateUrl: "views/home.html",
-    controller: "mainCtrl"
+    controller: "homeCtrl"
   });
 });
 

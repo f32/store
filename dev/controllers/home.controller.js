@@ -6,24 +6,6 @@
 app.controller('homeCtrl', function($scope, $location, dataService){
 
 
-      //////////
-      // routing
-      //////
-
-      $scope.goToEdit = function(){
-        $location.path("/edit");
-      }
-
-      $scope.goToProduct = function(){
-        $location.path("/product");
-      }
-
-      $scope.goToHome = function(){
-        $location.path("/");
-      }
-
-      // EOF routing
-
 
     // permanent data-clone:
     $scope.items = dataService.data;
@@ -37,8 +19,8 @@ app.controller('homeCtrl', function($scope, $location, dataService){
     }
 
     $scope.showProduct = (item) => {
-      $scope.currentItem = item ? angular.copy(item) : {};
-      $scope.goToProduct();
+      // $scope.currentItem = item ? angular.copy(item) : {};
+      $location.path("/product");
     };
 
 
