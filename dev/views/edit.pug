@@ -35,7 +35,7 @@ form.panel-body.form-horizontal(ng-controller='editCtrl', name='editForm', noval
 
       input#edit_avatar.edit-input.edit-input-file(
         type='file',
-        onchange='angular.element(this).$scope().getImage(this, angular.element(this).$scope().imageIsLoaded)',
+        onchange='angular.element(this).scope().getImage(this, angular.element(this).scope().imageIsLoaded)',
         accept='image/png,image/jpeg')
 
     //- .avatar-preview(ng-if="currentItem.image" style="background-image: url({{infoBlocks.basic.data.image!==null?infoBlocks.basic.data.image:'/Content/img/avatar.svg'}});")
